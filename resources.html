@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Resources - MindEase</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🧘 MindEase</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stress-assessment.html">Stress Check</a></li>
+                <li><a href="affirmations.html">Affirmations</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin-login.html" class="admin-btn">Admin</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>📚 Mental Health Resources</h1>
+                <p>Curated articles, videos, and guides for your wellbeing journey</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="resource-filters">
+                <button class="filter-tab active" data-type="all" onclick="filterResources('all')">
+                    All Resources
+                </button>
+                <button class="filter-tab" data-type="article" onclick="filterResources('article')">
+                    📄 Articles
+                </button>
+                <button class="filter-tab" data-type="video" onclick="filterResources('video')">
+                    🎥 Videos
+                </button>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="resources-container">
+                <div class="resources-grid" id="resourcesGrid">
+                    <!-- Resources will be loaded here by JavaScript -->
+                    <div class="loading-message">Loading resources...</div>
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div class="info-section">
+                <h2>Why Mental Health Resources Matter</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>🎓 Learn & Grow</h3>
+                        <p>Understanding mental health helps you recognize patterns, develop coping strategies, and build resilience in challenging times.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🤝 You're Not Alone</h3>
+                        <p>Millions of people experience mental health challenges. These resources connect you with expert advice and community support.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>💪 Empower Yourself</h3>
+                        <p>Knowledge is power. These tools and guides give you practical techniques to manage stress, anxiety, and improve wellbeing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🧘 MindEase</h4>
+                    <p>Your companion for mental wellbeing and self-care</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="stress-assessment.html">Stress Assessment</a></li>
+                        <li><a href="affirmations.html">Affirmations</a></li>
+                        <li><a href="meditation.html">Meditation</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#helplines">Emergency Helplines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MindEase. Created for Web Technology Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/resources.js"></script>
+</body>
+</html>
