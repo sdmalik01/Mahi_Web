@@ -1,186 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Support - MindEase</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — MindEase</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🧘 MindEase</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stress-assessment.html">Stress Check</a></li>
-                <li><a href="affirmations.html">Affirmations</a></li>
-                <li><a href="meditation.html">Meditation</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-                <li><a href="admin-login.html" class="admin-btn">Admin</a></li>
-            </ul>
-            <div class="menu-toggle">☰</div>
-        </div>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand"><a href="index.html">MindEase</a></h1>
+      <nav><ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul></nav>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <section class="page-content">
-        <div class="container">
-            <div class="page-header">
-                <h1>📞 Contact & Support</h1>
-                <p>We're here to help and listen</p>
-            </div>
+  <main class="container">
+    <h2>Contact & Helplines</h2>
 
-            <!-- Two Column Layout -->
-            <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="contact-form-section">
-                    <h2>💬 Send Us a Message</h2>
-                    <p>Share your feedback, suggestions, or concerns</p>
-                    
-                    <form id="contactForm" onsubmit="submitFeedback(event)">
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Enter your name">
-                        </div>
+    <form id="contact-form" class="card" method="post" action="php/submit-feedback.php">
+      <div class="form-row">
+        <label for="name">Your name</label>
+        <input id="name" name="name" required />
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Send</button>
+      </div>
+    </form>
 
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                    </form>
-
-                    <div id="formMessage" class="form-message" style="display: none;"></div>
-                </div>
-
-                <!-- Helplines Section -->
-                <div class="helplines-section" id="helplines">
-                    <h2>🆘 Emergency Mental Health Helplines</h2>
-                    <p class="helpline-note">If you're in crisis or need immediate support, please reach out:</p>
-
-                    <div class="helplines-list">
-                        <div class="helpline-card">
-                            <h3>🇮🇳 India - Vandrevala Foundation</h3>
-                            <p class="helpline-number">1860 2662 345</p>
-                            <p class="helpline-info">24/7 Mental Health Support</p>
-                        </div>
-
-                        <div class="helpline-card">
-                            <h3>🇮🇳 India - iCall</h3>
-                            <p class="helpline-number">9152987821</p>
-                            <p class="helpline-info">Mon-Sat, 8 AM - 10 PM</p>
-                        </div>
-
-                        <div class="helpline-card">
-                            <h3>🇮🇳 India - Sumaitri</h3>
-                            <p class="helpline-number">011 2338 9090</p>
-                            <p class="helpline-info">Delhi NCR - 2 PM to 10 PM</p>
-                        </div>
-
-                        <div class="helpline-card">
-                            <h3>🇮🇳 India - AASRA</h3>
-                            <p class="helpline-number">91-22-27546669</p>
-                            <p class="helpline-info">24/7 Suicide Prevention</p>
-                        </div>
-
-                        <div class="helpline-card">
-                            <h3>🇺🇸 USA - National Suicide Prevention</h3>
-                            <p class="helpline-number">988</p>
-                            <p class="helpline-info">24/7 Crisis Support</p>
-                        </div>
-
-                        <div class="helpline-card">
-                            <h3>🇬🇧 UK - Samaritans</h3>
-                            <p class="helpline-number">116 123</p>
-                            <p class="helpline-info">24/7 Emotional Support</p>
-                        </div>
-
-                        <div class="helpline-card">
-                            <h3>🌍 International Association</h3>
-                            <p class="helpline-number">Visit IASP</p>
-                            <p class="helpline-info"><a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank">Find your country's helpline</a></p>
-                        </div>
-                    </div>
-
-                    <div class="emergency-note">
-                        <p><strong>⚠️ In case of emergency:</strong></p>
-                        <ul>
-                            <li>Call emergency services (911, 112, 108, etc.)</li>
-                            <li>Go to the nearest emergency room</li>
-                            <li>Contact a trusted friend or family member</li>
-                            <li>Reach out to a mental health professional</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Support Info -->
-            <div class="support-info">
-                <h2>📧 Other Ways to Reach Us</h2>
-                <div class="support-grid">
-                    <div class="support-card">
-                        <div class="support-icon">📧</div>
-                        <h4>Email Support</h4>
-                        <p>support@mindease.com</p>
-                        <p class="support-note">Response within 24-48 hours</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">💻</div>
-                        <h4>Technical Issues</h4>
-                        <p>tech@mindease.com</p>
-                        <p class="support-note">For website bugs and problems</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">🤝</div>
-                        <h4>Partnerships</h4>
-                        <p>partners@mindease.com</p>
-                        <p class="support-note">Collaboration inquiries</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="card">
+      <h3>Emergency helplines</h3>
+      <ul>
+        <li>National helpline: 1234-567-890</li>
+        <li>Local services: Check your region</li>
+      </ul>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>🧘 MindEase</h4>
-                    <p>Your companion for mental wellbeing and self-care</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="stress-assessment.html">Stress Assessment</a></li>
-                        <li><a href="affirmations.html">Affirmations</a></li>
-                        <li><a href="meditation.html">Meditation</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="contact.html#helplines">Emergency Helplines</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 MindEase. Created for Web Technology Project.</p>
-            </div>
-        </div>
-    </footer>
+  <footer class="site-footer">
+    <div class="container"><small>© MindEase</small></div>
+  </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/contact.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

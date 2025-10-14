@@ -1,0 +1,96 @@
+/* ===============================
+   MindEase - Admin Panel Styles
+   File: css/admin.css
+================================*/
+
+body {
+  background: #eef2ff;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Login Page */
+.login-container {
+  width: 400px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  color: #4461f2;
+  margin-bottom: 1.5rem;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  width: 100%;
+  background: #4461f2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background: #354bd1;
+}
+
+/* Admin Dashboard */
+.dashboard {
+  padding: 2rem;
+}
+
+.dashboard h2 {
+  color: #4461f2;
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f1f4ff;
+  color: #4461f2;
+}
+
+td button {
+  padding: 5px 10px;
+  background: #ff5e57;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+td button:hover {
+  background: #e0463f;
+}

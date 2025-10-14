@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard — MindEase</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="admin-dashboard.html">Overview</a></li>
+          <li><a href="affirmations.html">Manage Affirmations</a></li>
+          <li><a href="resources.html">Manage Resources</a></li>
+          <li><a href="php/logout.php">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section class="card">
+      <h2>Overview</h2>
+      <p>Quick stats</p>
+      <div id="stats">Loading…</div>
+    </section>
+
+    <section class="card">
+      <h2>Recent feedback</h2>
+      <div id="feedback-list">Loading…</div>
+    </section>
+  </main>
+
+  <script>
+    // Admin pages fetch data from php/get-data.php via admin.js (or inline fetch calls).
+  </script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

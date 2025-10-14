@@ -1,176 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guided Meditation - MindEase</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meditation — MindEase</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🧘 MindEase</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stress-assessment.html">Stress Check</a></li>
-                <li><a href="affirmations.html">Affirmations</a></li>
-                <li><a href="meditation.html" class="active">Meditation</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="admin-login.html" class="admin-btn">Admin</a></li>
-            </ul>
-            <div class="menu-toggle">☰</div>
-        </div>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand"><a href="index.html">MindEase</a></h1>
+      <nav><ul class="nav">
+        <li><a href="affirmations.html">Affirmations</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul></nav>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <section class="meditation-section">
-        <div class="container">
-            <div class="page-header">
-                <h1>🧘‍♀️ Guided Breathing Exercise</h1>
-                <p>Follow the circle and breathe deeply</p>
-            </div>
+  <main class="container">
+    <h2>Guided Breathing</h2>
+    <p>Follow the breathing animation and audio (optional) for 2–5 minutes.</p>
 
-            <!-- Breathing Exercise Container -->
-            <div class="meditation-container">
-                <!-- Breathing Circle Animation -->
-                <div class="breathing-circle-container">
-                    <div class="breathing-circle" id="breathingCircle">
-                        <div class="circle-inner">
-                            <span class="breathing-text" id="breathingText">Get Ready</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Instructions -->
-                <div class="meditation-instructions" id="instructions">
-                    <h3>How to Practice</h3>
-                    <ol>
-                        <li>Find a comfortable position</li>
-                        <li>Click "Start" to begin</li>
-                        <li>Follow the circle's expansion and contraction</li>
-                        <li>Breathe in as it expands, breathe out as it contracts</li>
-                        <li>Focus on your breath and let go of stress</li>
-                    </ol>
-                </div>
-
-                <!-- Control Panel -->
-                <div class="meditation-controls">
-                    <button class="btn btn-primary btn-large" id="startBtn" onclick="startMeditation()">
-                        ▶️ Start Meditation
-                    </button>
-                    <button class="btn btn-secondary btn-large" id="pauseBtn" onclick="pauseMeditation()" style="display: none;">
-                        ⏸️ Pause
-                    </button>
-                    <button class="btn btn-outline" id="stopBtn" onclick="stopMeditation()" style="display: none;">
-                        ⏹️ Stop
-                    </button>
-                </div>
-
-                <!-- Settings -->
-                <div class="meditation-settings">
-                    <h3>⚙️ Settings</h3>
-                    <div class="setting-item">
-                        <label for="duration">Duration (minutes):</label>
-                        <select id="duration" onchange="updateDuration()">
-                            <option value="1">1 minute</option>
-                            <option value="3" selected>3 minutes</option>
-                            <option value="5">5 minutes</option>
-                            <option value="10">10 minutes</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label for="breathSpeed">Breathing Speed:</label>
-                        <select id="breathSpeed" onchange="updateBreathSpeed()">
-                            <option value="slow">Slow (8 seconds)</option>
-                            <option value="medium" selected>Medium (6 seconds)</option>
-                            <option value="fast">Fast (4 seconds)</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>
-                            <input type="checkbox" id="soundToggle" onchange="toggleSound()">
-                            Enable relaxing sound
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Progress -->
-                <div class="meditation-progress" id="progressSection" style="display: none;">
-                    <div class="progress-info">
-                        <span id="currentTime">0:00</span>
-                        <span id="totalTime">3:00</span>
-                    </div>
-                    <div class="progress-bar-meditation">
-                        <div class="progress-fill-meditation" id="progressFill"></div>
-                    </div>
-                    <p class="breath-count">Breath Cycles: <span id="breathCount">0</span></p>
-                </div>
-            </div>
-
-            <!-- Benefits Section -->
-            <div class="benefits-section">
-                <h2>Benefits of Breathing Exercises</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🫁</div>
-                        <h4>Reduces Stress</h4>
-                        <p>Deep breathing activates the parasympathetic nervous system, promoting relaxation</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">❤️</div>
-                        <h4>Lowers Blood Pressure</h4>
-                        <p>Regular practice helps regulate heart rate and blood pressure</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🧠</div>
-                        <h4>Improves Focus</h4>
-                        <p>Increases oxygen flow to the brain, enhancing concentration</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">😌</div>
-                        <h4>Better Sleep</h4>
-                        <p>Calms the mind and prepares the body for restful sleep</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="card breathing">
+      <div id="breath-circle" class="breath-circle" aria-hidden="true"></div>
+      <div class="controls">
+        <button id="start-breath" class="btn">Start</button>
+        <button id="stop-breath" class="btn ghost">Stop</button>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>🧘 MindEase</h4>
-                    <p>Your companion for mental wellbeing and self-care</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="stress-assessment.html">Stress Assessment</a></li>
-                        <li><a href="affirmations.html">Affirmations</a></li>
-                        <li><a href="meditation.html">Meditation</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="contact.html#helplines">Emergency Helplines</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 MindEase. Created for Web Technology Project.</p>
-            </div>
-        </div>
-    </footer>
+  <footer class="site-footer">
+    <div class="container"><small>© MindEase</small></div>
+  </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/meditation.js"></script>
+  <script src="js/meditation.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,156 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindEase - Mental Wellbeing & Self-Care Platform</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MindEase — Home</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🧘 MindEase</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="stress-assessment.html">Stress Check</a></li>
-                <li><a href="affirmations.html">Affirmations</a></li>
-                <li><a href="meditation.html">Meditation</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="admin-login.html" class="admin-btn">Admin</a></li>
-            </ul>
-            <div class="menu-toggle">☰</div>
-        </div>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand"><a href="index.html">MindEase</a></h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="stress-assessment.html">Stress Quiz</a></li>
+          <li><a href="affirmations.html">Affirmations</a></li>
+          <li><a href="meditation.html">Meditation</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin-login.html">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
+  <main class="container">
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">Welcome to MindEase</h1>
-            <p class="fade-in-delay">Your personal space for mental wellbeing and self-care</p>
-            <div class="hero-buttons fade-in-delay-2">
-                <a href="stress-assessment.html" class="btn btn-primary">Check Your Stress</a>
-                <a href="meditation.html" class="btn btn-secondary">Start Meditation</a>
-            </div>
-        </div>
+      <h2>Welcome to MindEase</h2>
+      <p>Support for mental wellbeing — stress checks, calming exercises, and helpful resources.</p>
+      <p><a class="btn" href="stress-assessment.html">Take the stress quiz</a></p>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
-        <div class="container">
-            <h2 class="section-title">How MindEase Helps You</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Stress Assessment</h3>
-                    <p>Take a quick interactive quiz to evaluate your current stress and anxiety levels</p>
-                    <a href="stress-assessment.html" class="feature-link">Take Assessment →</a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💭</div>
-                    <h3>Daily Affirmations</h3>
-                    <p>Read, save, and create personal affirmations to boost positivity and confidence</p>
-                    <a href="affirmations.html" class="feature-link">View Affirmations →</a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🧘‍♀️</div>
-                    <h3>Guided Meditation</h3>
-                    <p>Practice breathing exercises with calming animations and optional sounds</p>
-                    <a href="meditation.html" class="feature-link">Start Meditation →</a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Mental Health Resources</h3>
-                    <p>Access curated articles, videos, and helpful guides on mindfulness and wellness</p>
-                    <a href="resources.html" class="feature-link">Browse Resources →</a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📞</div>
-                    <h3>Emergency Helplines</h3>
-                    <p>Quick access to mental health support contacts and professional help</p>
-                    <a href="contact.html" class="feature-link">View Helplines →</a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Feedback & Support</h3>
-                    <p>Share your thoughts, suggestions, or reach out for additional support</p>
-                    <a href="contact.html" class="feature-link">Contact Us →</a>
-                </div>
-            </div>
-        </div>
+      <article>
+        <h3>Quick Assessment</h3>
+        <p>Short stress assessment to help you understand your current state.</p>
+      </article>
+      <article>
+        <h3>Positive Affirmations</h3>
+        <p>Browse curated affirmations to build healthy thought patterns.</p>
+      </article>
+      <article>
+        <h3>Guided Breathing</h3>
+        <p>Simple breathing exercises to calm your mind.</p>
+      </article>
     </section>
+  </main>
 
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <blockquote class="inspirational-quote">
-                "Your mental health is a priority. Your happiness is essential. Your self-care is a necessity."
-            </blockquote>
-        </div>
-    </section>
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> MindEase — Mental Wellness</small>
+    </div>
+  </footer>
 
-    <!-- Quick Stats -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 class="stat-number">4+</h3>
-                    <p>Interactive Tools</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">50+</h3>
-                    <p>Affirmations</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">24/7</h3>
-                    <p>Access Anytime</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">100%</h3>
-                    <p>Free to Use</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>🧘 MindEase</h4>
-                    <p>Your companion for mental wellbeing and self-care</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="stress-assessment.html">Stress Assessment</a></li>
-                        <li><a href="affirmations.html">Affirmations</a></li>
-                        <li><a href="meditation.html">Meditation</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="contact.html#helplines">Emergency Helplines</a></li>
-                        <li><a href="admin-login.html">Admin Login</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 MindEase. Created for Web Technology Project.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
