@@ -1,51 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Affirmations — MindEase</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Affirmations - MindEase</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="brand"><a href="index.html">MindEase</a></h1>
-      <nav><ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="stress-assessment.html">Stress Quiz</a></li>
-        <li><a href="meditation.html">Meditation</a></li>
-      </ul></nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <h2>Affirmations</h2>
-
-    <section class="affirmation-controls card">
-      <input id="affirmation-search" placeholder="Search affirmations..." />
-      <button id="new-affirmation-btn" class="btn">New</button>
-    </section>
-
-    <section id="affirmation-list" class="card">
-      <!-- JS will populate affirmations from affirmations.js -->
-      <p class="muted">Loading affirmations…</p>
-    </section>
-
-    <template id="affirmation-template">
-      <div class="affirmation">
-        <p class="text"></p>
-        <div class="meta">
-          <button class="btn small favorite-btn">❤️</button>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🧘 MindEase</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stress-assessment.html">Stress Check</a></li>
+                <li><a href="affirmations.html" class="active">Affirmations</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin-login.html" class="admin-btn">Admin</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
         </div>
-      </div>
-    </template>
-  </main>
+    </nav>
 
-  <footer class="site-footer">
-    <div class="container"><small>© MindEase</small></div>
-  </footer>
+    <!-- Main Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>💭 Daily Affirmations</h1>
+                <p>Positive thoughts to brighten your day</p>
+            </div>
 
-  <script src="js/affirmations.js"></script>
-  <script src="js/main.js"></script>
+            <!-- Daily Affirmation Highlight -->
+            <div class="daily-affirmation">
+                <h2>✨ Today's Affirmation</h2>
+                <div class="affirmation-card featured" id="dailyAffirmation">
+                    <p class="affirmation-text">Loading your daily affirmation...</p>
+                    <button class="btn-icon" onclick="refreshDailyAffirmation()" title="Get new affirmation">🔄</button>
+                </div>
+            </div>
+
+            <!-- Add New Affirmation Section -->
+            <div class="add-affirmation-section">
+                <h3>➕ Create Your Own Affirmation</h3>
+                <div class="add-affirmation-form">
+                    <textarea id="newAffirmationText" placeholder="Write your personal affirmation here..." rows="3"></textarea>
+                    <button class="btn btn-primary" onclick="addAffirmation()">Add Affirmation</button>
+                </div>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="filter-section">
+                <h3>Filter by Category</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all" onclick="filterAffirmations('all')">All</button>
+                    <button class="filter-btn" data-category="self-love" onclick="filterAffirmations('self-love')">Self-Love</button>
+                    <button class="filter-btn" data-category="relaxation" onclick="filterAffirmations('relaxation')">Relaxation</button>
+                    <button class="filter-btn" data-category="stress-relief" onclick="filterAffirmations('stress-relief')">Stress Relief</button>
+                    <button class="filter-btn" data-category="mindfulness" onclick="filterAffirmations('mindfulness')">Mindfulness</button>
+                    <button class="filter-btn" data-category="anxiety" onclick="filterAffirmations('anxiety')">Anxiety</button>
+                    <button class="filter-btn" data-category="confidence" onclick="filterAffirmations('confidence')">Confidence</button>
+                </div>
+            </div>
+
+            <!-- Affirmations Grid -->
+            <div class="affirmations-container">
+                <h3>All Affirmations</h3>
+                <div class="affirmations-grid" id="affirmationsGrid">
+                    <!-- Affirmations will be loaded here by JavaScript -->
+                    <div class="loading-message">Loading affirmations...</div>
+                </div>
+            </div>
+
+            <!-- Favorites Section -->
+            <div class="favorites-section">
+                <h3>⭐ Your Favorites</h3>
+                <div class="favorites-grid" id="favoritesGrid">
+                    <p class="empty-message">No favorites yet. Click the star icon to save affirmations!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🧘 MindEase</h4>
+                    <p>Your companion for mental wellbeing and self-care</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="stress-assessment.html">Stress Assessment</a></li>
+                        <li><a href="affirmations.html">Affirmations</a></li>
+                        <li><a href="meditation.html">Meditation</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#helplines">Emergency Helplines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MindEase. Created for Web Technology Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/affirmations.js"></script>
 </body>
 </html>

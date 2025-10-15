@@ -1,76 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stress Assessment — MindEase</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Assessment - MindEase</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="brand"><a href="index.html">MindEase</a></h1>
-      <nav><ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="affirmations.html">Affirmations</a></li>
-        <li><a href="meditation.html">Meditation</a></li>
-      </ul></nav>
-    </div>
-  </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🧘 MindEase</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stress-assessment.html" class="active">Stress Check</a></li>
+                <li><a href="affirmations.html">Affirmations</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin-login.html" class="admin-btn">Admin</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </nav>
 
-  <main class="container">
-    <h2>Stress Assessment</h2>
-    <p>Answer honestly — results are for guidance only.</p>
+    <!-- Main Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>📊 Stress & Anxiety Assessment</h1>
+                <p>Answer these questions honestly to understand your current stress levels</p>
+            </div>
 
-    <form id="stress-quiz" class="card">
-      <!-- Example question set; stress-assessment.js will handle logic -->
-      <div class="question">
-        <label>1. Over the past 2 weeks, how often have you felt nervous or stressed?</label>
-        <select name="q1" required>
-          <option value="">Choose...</option>
-          <option value="0">Not at all</option>
-          <option value="1">Several days</option>
-          <option value="2">More than half the days</option>
-          <option value="3">Nearly every day</option>
-        </select>
-      </div>
+            <!-- Quiz Container -->
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+                    <p class="progress-text">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span></p>
+                </div>
 
-      <div class="question">
-        <label>2. How often did you have trouble relaxing?</label>
-        <select name="q2" required>
-          <option value="">Choose...</option>
-          <option value="0">Not at all</option>
-          <option value="1">Several days</option>
-          <option value="2">More than half the days</option>
-          <option value="3">Nearly every day</option>
-        </select>
-      </div>
+                <div class="question-card" id="questionCard">
+                    <h2 class="question-text" id="questionText"></h2>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be inserted by JavaScript -->
+                    </div>
+                </div>
 
-      <div class="question">
-        <label>3. How often did you feel overwhelmed?</label>
-        <select name="q3" required>
-          <option value="">Choose...</option>
-          <option value="0">Not at all</option>
-          <option value="1">Several days</option>
-          <option value="2">More than half the days</option>
-          <option value="3">Nearly every day</option>
-        </select>
-      </div>
+                <div class="quiz-navigation">
+                    <button class="btn btn-secondary" id="prevBtn" disabled>Previous</button>
+                    <button class="btn btn-primary" id="nextBtn">Next</button>
+                </div>
+            </div>
 
-      <div class="quiz-actions">
-        <button type="submit" class="btn">Get result</button>
-        <button type="button" id="quiz-reset" class="btn ghost">Reset</button>
-      </div>
-    </form>
+            <!-- Results Container -->
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <div class="result-card">
+                    <div class="result-icon" id="resultIcon">😊</div>
+                    <h2 class="result-title" id="resultTitle">Your Stress Level</h2>
+                    <div class="result-score">
+                        <div class="score-circle">
+                            <span id="scoreValue">0</span>
+                            <span class="score-label">/ 40</span>
+                        </div>
+                    </div>
+                    <div class="result-category" id="resultCategory">
+                        <span class="category-badge">Low Stress</span>
+                    </div>
+                    <div class="result-description" id="resultDescription">
+                        <p>Your stress levels appear to be well-managed.</p>
+                    </div>
+                    <div class="result-advice" id="resultAdvice">
+                        <h3>💡 Personalized Advice</h3>
+                        <ul id="adviceList">
+                            <!-- Advice items will be inserted here -->
+                        </ul>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn btn-primary" onclick="location.href='meditation.html'">Try Meditation</button>
+                        <button class="btn btn-secondary" onclick="location.href='affirmations.html'">Read Affirmations</button>
+                        <button class="btn btn-outline" onclick="retakeQuiz()">Retake Assessment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div id="quiz-result" class="card hidden" aria-live="polite"></div>
-  </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🧘 MindEase</h4>
+                    <p>Your companion for mental wellbeing and self-care</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="stress-assessment.html">Stress Assessment</a></li>
+                        <li><a href="affirmations.html">Affirmations</a></li>
+                        <li><a href="meditation.html">Meditation</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#helplines">Emergency Helplines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MindEase. Created for Web Technology Project.</p>
+            </div>
+        </div>
+    </footer>
 
-  <footer class="site-footer">
-    <div class="container"><small>© MindEase</small></div>
-  </footer>
-
-  <script src="js/stress-assessment.js"></script>
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/stress-assessment.js"></script>
 </body>
 </html>

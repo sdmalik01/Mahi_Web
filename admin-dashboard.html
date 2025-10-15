@@ -1,42 +1,250 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Admin Dashboard — MindEase</title>
-  <link rel="stylesheet" href="css/admin.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MindEase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
-<body>
-  <header class="admin-header">
-    <div class="container">
-      <h1>Admin Dashboard</h1>
-      <nav>
-        <ul class="nav">
-          <li><a href="admin-dashboard.html">Overview</a></li>
-          <li><a href="affirmations.html">Manage Affirmations</a></li>
-          <li><a href="resources.html">Manage Resources</a></li>
-          <li><a href="php/logout.php">Logout</a></li>
-        </ul>
-      </nav>
+<body class="admin-body">
+    <!-- Admin Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-content">
+            <div class="admin-logo">🧘 MindEase Admin</div>
+            <div class="admin-user">
+                <span id="adminUsername">Admin</span>
+                <a href="php/logout.php" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li><a href="#dashboard" class="active" onclick="showSection('dashboard')">📊 Dashboard</a></li>
+                <li><a href="#affirmations" onclick="showSection('affirmations')">💭 Affirmations</a></li>
+                <li><a href="#resources" onclick="showSection('resources')">📚 Resources</a></li>
+                <li><a href="#feedback" onclick="showSection('feedback')">📬 Feedback</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="admin-content">
+            <!-- Dashboard Overview Section -->
+            <section id="section-dashboard" class="admin-section active">
+                <h1>Dashboard Overview</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💭</div>
+                        <div class="stat-info">
+                            <h3 id="totalAffirmations">0</h3>
+                            <p>Total Affirmations</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-info">
+                            <h3 id="totalResources">0</h3>
+                            <p>Total Resources</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📬</div>
+                        <div class="stat-info">
+                            <h3 id="totalFeedback">0</h3>
+                            <p>User Feedback</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <h3 id="totalFavorites">0</h3>
+                            <p>Favorited Items</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="welcome-message">
+                    <h2>Welcome to MindEase Admin Panel</h2>
+                    <p>Manage affirmations, resources, and view user feedback from this central dashboard.</p>
+                </div>
+            </section>
+
+            <!-- Affirmations Management Section -->
+            <section id="section-affirmations" class="admin-section">
+                <h1>Manage Affirmations</h1>
+                
+                <div class="admin-card">
+                    <h3>➕ Add New Affirmation</h3>
+                    <form id="addAffirmationForm" onsubmit="addNewAffirmation(event)">
+                        <div class="form-row">
+                            <div class="form-group flex-2">
+                                <label for="affirmationText">Affirmation Text *</label>
+                                <textarea 
+                                    id="affirmationText" 
+                                    name="affirmationText" 
+                                    rows="3" 
+                                    required
+                                    placeholder="Enter the affirmation..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="affirmationCategory">Category *</label>
+                                <select id="affirmationCategory" name="category" required>
+                                    <option value="general">General</option>
+                                    <option value="self-love">Self-Love</option>
+                                    <option value="relaxation">Relaxation</option>
+                                    <option value="stress-relief">Stress Relief</option>
+                                    <option value="mindfulness">Mindfulness</option>
+                                    <option value="anxiety">Anxiety</option>
+                                    <option value="confidence">Confidence</option>
+                                    <option value="positivity">Positivity</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Affirmation</button>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h3>📋 All Affirmations</h3>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Affirmation</th>
+                                    <th>Category</th>
+                                    <th>Date Added</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="affirmationsTableBody">
+                                <tr>
+                                    <td colspan="5" class="text-center">Loading affirmations...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources Management Section -->
+            <section id="section-resources" class="admin-section">
+                <h1>Manage Resources</h1>
+                
+                <div class="admin-card">
+                    <h3>➕ Add New Resource</h3>
+                    <form id="addResourceForm" onsubmit="addNewResource(event)">
+                        <div class="form-row">
+                            <div class="form-group flex-2">
+                                <label for="resourceTitle">Title *</label>
+                                <input 
+                                    type="text" 
+                                    id="resourceTitle" 
+                                    name="title" 
+                                    required
+                                    placeholder="Resource title">
+                            </div>
+                            <div class="form-group">
+                                <label for="resourceType">Type *</label>
+                                <select id="resourceType" name="type" required>
+                                    <option value="article">📄 Article</option>
+                                    <option value="video">🎥 Video</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="resourceDescription">Description *</label>
+                            <textarea 
+                                id="resourceDescription" 
+                                name="description" 
+                                rows="3" 
+                                required
+                                placeholder="Brief description of the resource..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="resourceUrl">URL *</label>
+                            <input 
+                                type="url" 
+                                id="resourceUrl" 
+                                name="url" 
+                                required
+                                placeholder="https://example.com/resource">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Resource</button>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h3>📋 All Resources</h3>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>URL</th>
+                                    <th>Date Added</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resourcesTableBody">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading resources...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feedback Section -->
+            <section id="section-feedback" class="admin-section">
+                <h1>User Feedback</h1>
+                
+                <div class="admin-card">
+                    <h3>📬 All Feedback Messages</h3>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="feedbackTableBody">
+                                <tr>
+                                    <td colspan="7" class="text-center">Loading feedback...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-  </header>
 
-  <main class="container admin-main">
-    <section class="card">
-      <h2>Overview</h2>
-      <p>Quick stats</p>
-      <div id="stats">Loading…</div>
-    </section>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
 
-    <section class="card">
-      <h2>Recent feedback</h2>
-      <div id="feedback-list">Loading…</div>
-    </section>
-  </main>
-
-  <script>
-    // Admin pages fetch data from php/get-data.php via admin.js (or inline fetch calls).
-  </script>
-  <script src="js/admin.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Check if admin is logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            checkAdminAuth();
+            loadDashboardData();
+        });
+    </script>
 </body>
 </html>
